@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dante-deployment
+  labels:
+    app: dante
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dante
+  template:
+    metadata:
+      labels:
+        app: dante
+    spec:
+      containers:
+      - name: dante
+        image: wernight/dante:latest
+        ports:
+        - containerPort: 1080
